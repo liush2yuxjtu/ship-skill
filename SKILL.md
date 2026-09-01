@@ -4,10 +4,10 @@ description: >-
   Ship current Git work end-to-end. In an Eve project, ensure changed agent
   behavior has real session-based Eve eval coverage, bootstrap functional evals
   when missing, and run the local eval gate before commit; then create a feature
-  branch, scoped commit, push, PR, call the project babysit skill, merge, sync
-  the default branch, and give a safe-exit verdict. Use when the user runs
-  /ship or explicitly asks to ship, land, merge, or publish current repository
-  changes.
+  branch, scoped commit, push, PR/MR, reuse an installed readiness skill or the
+  bounded fallback, merge, sync the default branch, and give a safe-exit
+  verdict. Use when the user runs /ship or explicitly asks to ship, land,
+  merge, or publish current repository changes.
 ---
 
 # /ship — Eve functional evals through merge, then safe-exit
