@@ -1,0 +1,25 @@
+{
+  "skill_name": "ship",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Hypothetical dry-run only. Do not execute commands or mutate files. A Git repo has package.json dependency \"eve\": \"^0.38.3\", agent/agent.ts, agent/tools/get_weather.ts, and no evals/ directory or eval scripts. Current diff changes get_weather output from Celsius to Celsius plus humidity. User invokes /ship. State exact step-0 actions before commit, including files and functional assertions.",
+      "expected_output": "Recognize Eve despite no evals; bootstrap config and targeted real-session weather eval; assert success, tool call, and humidity output; discover and run strict eval before commit."
+    },
+    {
+      "id": 1,
+      "prompt": "Hypothetical dry-run only. Do not execute commands or mutate files. This Eve repo already has evals/evals.config.ts and evals/smoke-greeting.eval.ts, which only sends \"hello\" and asserts success. Current diff adds tools/refund_order.ts and instructions requiring approval before refund. package.json has \"evals:ci\": \"eve eval --strict --junit .eve/junit.xml\". User invokes /ship. State exact step-0 actions before commit.",
+      "expected_output": "Do not treat any eval file as sufficient; add targeted safe HITL/refund eval using real session, require/respond to approval without real side effects, assert tool behavior, run narrow strict eval then evals:ci."
+    },
+    {
+      "id": 2,
+      "prompt": "Hypothetical dry-run only. Do not execute commands or mutate files. Repo has .cursor/skills/eve/SKILL.md because team installed framework guidance, but package.json has no eve dependency, no Eve agent filesystem, no local eve package or binary, and no evals. Current diff changes a README. User invokes /ship. State exact step-0 decision.",
+      "expected_output": "Do not infer Eve from guidance skill; record not an Eve project and skip Eve eval bootstrap/gate."
+    },
+    {
+      "id": 3,
+      "prompt": "Hypothetical dry-run only. Do not execute commands or mutate files. Eve repo has evals/evals.config.ts and evals/weather/humidity.eval.ts. The eval sends a weather request, asserts t.succeeded(), t.calledTool(\"get_weather\"), and reply includes humidity. Current diff only adjusts README wording. package.json has \"evals:ci\": \"eve eval --strict --junit .eve/junit.xml\". User invokes /ship. State exact step-0 actions.",
+      "expected_output": "No new eval for docs-only change; retain existing functional coverage and run exact project evals:ci gate."
+    }
+  ]
+}
